@@ -106,16 +106,20 @@ analyze_string("Meena shravanapalli")
 
 #Task 9.Quiz Application — Functions to ask questions, validate answers, and keep score.
 def ask_question(question, answer):
-    user_ans = input(question + " ")
-    return user_ans.lower() == answer.lower()
-
-score = 0
-if ask_question("how many days are there in july", "31"):
-    score += 1
-if ask_question("25*5", "125"):
-    score += 1
-
-print(f"Your score: {score}/2")
+    user_answer = input(question + " ")
+    if user_answer.lower() == answer.lower():
+        print("correct!")
+        return 1
+    else:
+        print("wrong!")
+        return 0
+def quiz():        
+    score = 0
+    score+= ask_question("how many days are there in july", "31")
+    score += ask_question("What is the national flower of India?","Lotus")
+    score+=ask_question("Which festival is known as the Festival of Lights?", "Diwali")
+print(f"Your score is: ",score)
+quiz()
 
 #Task 10.Bank Transaction System — Simulate deposits and withdrawals using functions and return values.
 def bank_transaction():
