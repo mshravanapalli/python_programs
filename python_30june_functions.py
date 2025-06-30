@@ -1,0 +1,160 @@
+#Task 1.Create a Calculator by using function for operations
+def add(a,b):
+    return a+b
+def subtract(a,b):
+    return a-b
+def multiply(a,b):
+    return a*b
+def divide(a,b):
+    if b==0:
+        return 'error! division by zero'
+    return a/b
+print('select operation:+,-,*,/')
+operators=input("enter operator:")
+num1 = int(input("enter first number:"))
+num2 = int(input("enter second number:"))
+if operators == "+":
+    print(num1+num2)
+elif operators == "-":
+    print(num1-num2)
+elif operators == "*":
+    print(num1*num2)
+elif operators == "/":
+    print(num1/num2)
+
+
+#Task 2.Student Management System-Use keyword and default arguments to input student data.
+
+def stu_management(name,registrationno,course,city):
+    print(f"Student Name:{name}, ID:{registrationno}, Course:{course}, City:{city}")
+stu_management("Vismaya",101,"EEE","Sec")
+stu_management("Mishika",201,"CSe","HYD")
+
+#Task 3.Invoice Generator — Use return functions and lambda to apply discounts and calculate totals.
+def dis_calculate(total_amount):
+   dis = (lambda x: x * 0.10)(total_amount)
+   return dis
+def generate_invoice(itemname,price,quantity):
+    total = price * quantity
+    discount = dis_calculate(total)
+    final_amount = total - discount
+
+    print("----- Invoice -----")
+    print("Item:", itemname)
+    print("Price:", price)
+    print("Quantity:", quantity)
+    print("Total Amount:", total)
+    print("Discount (10%):", discount)
+    print("Amount to Pay:", final_amount)
+generate_invoice("tv", 20000, 3)
+
+#Task 4.Dynamic Greetings System — Use arbitrary arguments to greet multiple users.
+def greet_all(greeting, *names):
+    for name in names:
+        print(f"{greeting}, {name}!")
+greet_all("Hello", "Meena", "Vishu", "Praneeth", "Nikhil", "Sabeer")
+
+#Task 5.Recursive Task — Write a function to compute Fibonacci numbers recursively
+def fib(n):
+    """Returns the nth Fibonacci number using recursion."""
+    if n <= 1:
+        return 1
+    elif n == 1:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+
+# Example usage
+for i in range(6):
+    print(f"Fib(i) = {fib(i)}")
+
+#Task 6.Data Processor — Use *args and **kwargs to handle dynamic data fields.
+def data_processor(*args, **kwargs):
+    for key ,value in kwargs.items():
+        print(key,value)
+        print(args,kwargs)
+data_processor(1,2,name="meena",email="m@gmail.com")
+
+#Task 7.Lambda Sorting — Use lambda to sort a list of dictionaries by a specific key.
+
+employee=[{"name":"ccccc","age":34},
+          {"name":"bbbb","age":5},
+          {"name":"aaaaa","age":28},
+          {"name":"dddd","age":50}
+          ]
+employee.sort(key=lambda x:x["name"],reverse=True)
+print(employee)
+
+#Task 8.String Analyzer — Function that counts vowels, consonants, spaces, and symbols.
+def analyze_string(text):
+    vowels =0
+    consonants =0
+    spaces =0
+    symbols = 0
+    for ch in text:
+        if ch.lower() in 'aeiou':
+            vowels += 1
+        elif ch.isalpha():
+            consonants += 1
+        elif ch.isspace():
+            spaces += 1
+        else:
+            symbols += 1
+    print(f"Vowels: {vowels}, Consonants: {consonants}, Spaces: {spaces}, Symbols: {symbols}")
+
+analyze_string("Meena shravanapalli")
+
+#Task 9.Quiz Application — Functions to ask questions, validate answers, and keep score.
+def ask_question(question, answer):
+    user_ans = input(question + " ")
+    return user_ans.lower() == answer.lower()
+
+score = 0
+if ask_question("how many days are there in july", "31"):
+    score += 1
+if ask_question("25*5", "125"):
+    score += 1
+
+print(f"Your score: {score}/2")
+
+#Task 10.Bank Transaction System — Simulate deposits and withdrawals using functions and return values.
+def bank_transaction():
+    balance = 1200
+    correct_pin = 3344
+
+    pin = int(input("Enter your 4-digit PIN: "))
+
+    if pin == correct_pin:
+        print("Access Granted!")
+        print("1. Deposit")
+        print("2. Withdraw")
+        choice = int(input("Enter your choice (1 or 2): "))
+
+        if choice == 1:
+            amount = int(input("Enter amount to deposit: "))
+            balance = balance + amount
+            print("New Balance:", balance)
+
+        if choice == 2:
+            amount = int(input("Enter amount to withdraw: "))
+            if amount <= balance:
+                balance = balance - amount
+                print("New Balance:", balance)
+            if amount > balance:
+                print("Insufficient Balance")
+    if pin != correct_pin:
+        print("Incorrect PIN. Access Denied.")
+
+bank_transaction()
+
+
+
+
+
+
+
+
+
+
+
+
