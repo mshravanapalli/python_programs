@@ -122,34 +122,40 @@ print(f"Your score is: ",score)
 quiz()
 
 #Task 10.Bank Transaction System — Simulate deposits and withdrawals using functions and return values.
-def bank_transaction():
-    balance = 1200
-    correct_pin = 3344
+balance = 25000
+pin = "2228"
+def checkPin():
+    entered = input('enter your pin :')
+    return entered == pin
 
-    pin = int(input("Enter your 4-digit PIN: "))
+def deposit(amount):
+    if checkPin():
+        global balance
+        balance = balance + amount
+        print('Deposited amount is :',amount)
+        print('Your total balance is :',balance)
+    else:
+        print('You entered wrong PIN,Try again')
+        
+def withdraw(amount):
+    if checkPin():
+        global balance
+        if amount <= balance:
+            balance = balance - amount
+            print('Withdrawn amount is :',amount)
+            print('Your total balance is :', balance)
+        else:
+            print('Not enough balance')
 
-    if pin == correct_pin:
-        print("Access Granted!")
-        print("1. Deposit")
-        print("2. Withdraw")
-        choice = int(input("Enter your choice (1 or 2): "))
+    else:
+         print('You entered wrong PIN,Try again')
 
-        if choice == 1:
-            amount = int(input("Enter amount to deposit: "))
-            balance = balance + amount
-            print("New Balance:", balance)
-
-        if choice == 2:
-            amount = int(input("Enter amount to withdraw: "))
-            if amount <= balance:
-                balance = balance - amount
-                print("New Balance:", balance)
-            if amount > balance:
-                print("Insufficient Balance")
-    if pin != correct_pin:
-        print("Incorrect PIN. Access Denied.")
-
-bank_transaction()
+def checkBalance():
+    if checkPin():
+        print('Your balance is :',balance)
+    else:
+        print('You entered wrong PIN,Try again')
+withdraw(1000)
 
 
 
