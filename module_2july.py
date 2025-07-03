@@ -1,8 +1,18 @@
+#Task 1: Create and Use a Simple Module
+#Create a module calc.py with functions add, subtract, multiply, and divide
+#Import it into another script and perform all operations.
+
 import calc
 print(calc.add(22,12))
 print(calc.sub(10,2))
 print(calc.mul(10,2))
 print(calc.div(100,20))
+
+#Task 2.Task 2: Build a Geometry Toolkit
+#Create a file geometry.py with functions to calculate:
+#Area and perimeter of a circle
+#Area and perimeter of a rectangle
+#Use it in a separate file to display the results for given inputs.
 
 import geometry
 print(geometry.perimeter_rectangle(21,32))
@@ -110,8 +120,6 @@ if num_py_files != -1:
 import temp
 print(temp.month_name(8))
 
-
-#Import and use it in another script.
 
 
 
