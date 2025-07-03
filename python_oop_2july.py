@@ -88,29 +88,30 @@ stu1.static_method()
 
 # Task 6. What is the output of the following code?
 
-x = 5
+x=5
+
 def outer():
- x=10
+    x=10
 def inner():
     x=15
-
     print("Inner:",x)
     inner()
     print("Outer:",x)
     outer()
-    print("Global:",x)
-print("Inner:",x)
-print("Outer:",x)
 print("Global:",x)
 
 
 # Task 7. What will the output be? Explain why.
-    x=100
-      def modify():
-       global x
-        x=x+50
-       modify()
-    print(x)
+x=100
+
+def modify():
+    global x
+
+    x=x+50
+
+    modify()
+
+print(x)
 
 
 # Task 8. Create a nested function where a variable in the outer
@@ -118,30 +119,38 @@ print("Global:",x)
 
 def outer():
 
-     name =("vishu")
+    global a
 
-     def inner():
-         nonlocal name
-         name = "Meena"
-         print(name)
+def inner():
 
-     inner()
-     print(name)
-     outer()
+    global a
+    a = 2
+    print("inner:", a)
+
+    a = 0
+    print("outer1:", a)
+    inner()
+    print("outer2:", a)
+
+a =  1
+print( a)
+outer()
+print(a)
+
 
 #Task 9. What does the dir(__builtins__) function return?
 
-# Task 10.10. Identify the scope of each x in the following code and explain the output.
+print(dir(__builtins__))
+# Task 10. Identify the scope of each x in the following code and explain the output.
 
 x="global"
-def fun1():
-     x="enclosing"
-def fun2():
-     x="local"
-     print("fun2:",x)
-     fun2()
-     print("fun2:",x)
-     fun1()
-     print("global:",x)
-
+def func1():
+    x="enclosing"
+def func2():
+    x="local"
+    print("func2:",x)
+    func2()
+    print("func1:",x)
+    func1()
+print("global:",x)
 
